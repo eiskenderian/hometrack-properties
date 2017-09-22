@@ -1,0 +1,35 @@
+{
+  "name": "ei-hometrack",
+  "version": "0.2.6",
+  "description": "A Typescript server",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node ./index.ts"
+  },
+  "dependencies": {
+    "@types/express": "^4.0.37",
+    "@types/node": "^8.0.28",
+    "body-parser": "^1.18.1",
+    "express": "4.15.2",
+    "ts-node": "^3.3.0",
+    "tsd": "^0.6.5",
+    "typescript": "^2.5.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

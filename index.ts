@@ -13,6 +13,7 @@ class ResponseType {
 }
 
 rest_app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+   // Handle bad JSON
    if (err) {
       res.status(400).send('{"error": "Could not decode request: JSON parsing failed"}');
       return;
@@ -20,6 +21,7 @@ rest_app.use((err: Error, req: express.Request, res: express.Response, next: exp
 });
 
 rest_app.use((req: express.Request, res: express.Response) => {
+   // Some fields, like payload, are required.
    let err: boolean = false;
    if (!req.body.hasOwnProperty('payload'))
       err = true;
@@ -31,6 +33,7 @@ rest_app.use((req: express.Request, res: express.Response) => {
       return;
    }
    
+   // Create an array of property summaries.
    let summary: ResponseType[] = [];
    
    let items: any[] = req.body['payload'];
@@ -57,6 +60,7 @@ rest_app.use((req: express.Request, res: express.Response) => {
          break;
       }
       
+      // Create the output as objects that will be converted to JSON`
       let unit: string = address.hasOwnProperty('unitNumber') ? `${address['unitNumber']} ` : "";
       let coords: string = address.hasOwnProperty('lat') && address.hasOwnProperty('lon') ?
          ` Latitude ${address['lat']} Longitude ${address['lon']}` : "";
